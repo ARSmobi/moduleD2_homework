@@ -1,0 +1,28 @@
+{% extends 'layout/default.html' %}
+{% load my_filters %}
+{% block title %}
+News
+{% endblock title %}
+
+{% block content %}
+    <h1>Все новости и статьи</h1>
+    <h2>Всего {{ posts|length }}</h2>
+    {% if posts %}
+        <table class="table">
+            <tr>
+                <th scope="col">Название</th>
+                <th scope="col">Текст</th>
+                <th scope="col">Текст</th>
+            </tr>
+        {% for post in posts %}
+            <tr>
+                <td>{{ post.title|Censor }}</td>
+                <td>{{ post.dateCreation|date:'d.m.Y' }}</td>
+                <td>{{ post.text|truncatechars:50|Censor }}</td>
+            </tr>
+        {% endfor %}
+        </table>
+    {% else %}
+        <h2>Нет новостей или статей</h2>
+    {% endif %}
+{% endblock content %}

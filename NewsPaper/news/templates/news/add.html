@@ -1,10 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'layout/default.html' %}
+{% load my_filters %}
+
+{% block title %}
+News
+{% endblock title %}
+
+
+{% block content %}
+
+<h1>Создание Новости или статьи</h1>
+<form method="POST">
+    {% csrf_token %}
+<!--    <label for="title" class="form-label">Название</label>-->
+<!--    <input name="title" id="title" class="form-control" type="text">-->
+<!--    <label for="category-type" class="form-label">Тип поста</label>-->
+<!--    <select name="categoryType" id="category-type" class="form-control">-->
+<!--        <option selected>Выберите тип поста</option>-->
+<!--        {% for type in choices %}-->
+<!--        <option value="{{ type.0 }}">-->
+<!--            {{ type.1 }}-->
+<!--        </option>-->
+<!--        {% endfor %}-->
+<!--    </select>-->
+<!--    <label for="post-category" class="form-label">Категория</label>-->
+<!--    <select name="postCategory" id="post-category" class="form-control">-->
+<!--        <option selected>Выберите категорию</option>-->
+<!--        {% for categ in postCategory %}-->
+<!--        <option value="{{ categ.0 }}">-->
+<!--            {{ categ.1 }}-->
+<!--        </option>-->
+<!--        {% endfor %}-->
+<!--    </select>-->
+<!--    <label for="author" class="form-label">Автор</label>-->
+<!--    <select name="author" id="author" class="form-control">-->
+<!--        <option selected>Выберите автора</option>-->
+<!--        {% for auth in author %}-->
+<!--        <option value="{{ auth.0 }}">-->
+<!--            {{ auth.1 }}-->
+<!--        </option>-->
+<!--        {% endfor %}-->
+<!--    </select>-->
+<!--    <label for="text" class="form-label">Текст</label>-->
+<!--    <input name="text" id="text" class="form-control" type="text">-->
+    {{ form }}
+    <input class="btn btn-success" type="submit" value="Опубликовать">
+</form>
+
+{% endblock content %}

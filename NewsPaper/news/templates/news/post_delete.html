@@ -1,0 +1,29 @@
+{% extends 'layout/default.html' %}
+
+{% block title %}
+Post delete
+{% endblock title %}
+
+{% block content %}
+
+<h3>Удаление поста</h3>
+<div class="card">
+  <div class="card-header">
+    <h3>
+      {{ post.title }}
+    </h3>
+    <div>
+      Дата: <span class="badge bg-info">{{ post.dateCreation|date:'d.m.Y H:j' }}</span>
+      Автор: <span class="badge bg-info">{{ post.author }}</span>
+    </div>
+  </div>
+  <div class="card-body">
+    {{ post.text|truncatewords:20 }}
+  </div>
+</div>
+<form method="post">
+  {% csrf_token %}
+  <input class="btn btn-success" type="submit" value="Удалить">
+</form>
+
+{% endblock content %}

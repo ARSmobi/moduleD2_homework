@@ -1,0 +1,18 @@
+{% extends 'layout/default.html' %}
+{% load my_filters %}
+
+{% block title %}
+Post create
+{% endblock title %}
+
+
+{% block content %}
+
+<h1>Создание Новости или статьи</h1>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input class="btn btn-success" type="submit" value="Опубликовать">
+</form>
+
+{% endblock content %}

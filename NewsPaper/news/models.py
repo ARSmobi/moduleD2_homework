@@ -57,6 +57,12 @@ class Post(models.Model):
     def preview(self):
         return self.text[:123] + '...'
 
+    def __str__(self):
+        return f'Post #{self.pk} - Title: {self.title}'
+
+    def get_absolute_url(self):
+        return f'/post/{self.id}'
+
 
 class PostCategory(models.Model):
     postThrough = models.ForeignKey(Post, on_delete=models.CASCADE)

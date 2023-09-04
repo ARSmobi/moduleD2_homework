@@ -1,0 +1,25 @@
+{% extends 'layout/default.html' %}
+{% load my_filters %}
+
+{% block title %}
+Post
+{% endblock title %}
+
+{% block content %}
+
+<div class="card">
+    <div class="card-header">
+        <h3>
+            {{ post.title }}
+        </h3>
+        <div>
+            Название: <span class="badge bg-info">{{ post.title|Censor }}</span>
+            Дата: <span class="badge bg-info">{{ post.dateCreation|date:'d.m.Y H:j' }}</span>
+        </div>
+    </div>
+    <div class="card-body">
+        {{ post.text|Censor }}
+    </div>
+</div>
+
+{% endblock content %}

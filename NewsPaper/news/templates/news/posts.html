@@ -42,4 +42,8 @@ News
     <h2>Нет новостей или статей</h2>
 {% endif %}
 
+<div style="display: flex; justify-content: end;">
+    <a href="{% url 'news:post_create' %}"><button class="btn btn-success"> + </button></a>
+</div>
+
 {% endblock content %}

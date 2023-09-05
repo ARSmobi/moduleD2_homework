@@ -11,7 +11,7 @@ class PostList(ListView):
     template_name = 'news/posts.html'
     context_object_name = 'posts'
     # queryset = Post.objects.order_by('id')
-    paginate_by = 1
+    paginate_by = 10
     ordering = ['-dateCreation']
     form_class = PostForm
 
@@ -39,7 +39,7 @@ class AddPost(CreateView):
     model = Post
     template_name = 'news/post_create.html'
     form_class = PostForm
-    success_url = '/news/posts/'
+    success_url = '/news/search/'
 
     def form_valid(self, form):
         post = form.save(commit=False)

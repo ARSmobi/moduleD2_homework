@@ -8,6 +8,6 @@ class PostFilter(FilterSet):
         # fields = ('author', 'categoryType', 'postCategory',)
         fields = {
             'dateCreation': ['gt'],
-            'title': ['icontains'],
+            'title': ['iregex'],
             'author': ['exact'],
         }

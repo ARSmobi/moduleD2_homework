@@ -2,6 +2,7 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 from .models import Post
 from .filters import PostFilter
 from .forms import PostForm
+from django.core.paginator import Paginator
 from django.urls import reverse_lazy
 
 
@@ -9,11 +10,12 @@ class PostList(ListView):
     model = Post
     template_name = 'news/posts.html'
     context_object_name = 'posts'
-    queryset = Post.objects.order_by('id')
-    paginate_by = 10
+    # queryset = Post.objects.order_by('id')
+    paginate_by = 1
+    ordering = ['-dateCreation']
     form_class = PostForm
 
-    def get_contex_data(self, **kwargs):
+    def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['filter'] = PostFilter(self.request.GET, queryset=self.get_queryset())
         context['choices'] = Post.CATEGORY_CHOICES

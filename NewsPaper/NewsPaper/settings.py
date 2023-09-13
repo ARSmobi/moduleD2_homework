@@ -101,20 +101,20 @@ DATABASES = {
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
-AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
-]
+# AUTH_PASSWORD_VALIDATORS = [
+#     {
+#         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+#     },
+#     {
+#         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+#     },
+#     {
+#         'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+#     },
+#     {
+#         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+#     },
+# ]
 
 
 # Internationalization
@@ -140,7 +140,7 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_URL = '/accounts/login/'
-LOGIN_REDIRECT = 'news/search/'
+LOGIN_REDIRECT = '/news/search/'
 
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
@@ -152,3 +152,8 @@ ACCOUNT_UNIQUE_EMAIL = True
 ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_EMAIL_VERIFICATION = 'none'
+
+# ACCOUNT_FORMS = {'signup': 'news.forms.BasicSignupForm'}
+#
+# if DEBUG:
+#     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

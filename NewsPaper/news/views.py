@@ -4,6 +4,7 @@ from .filters import PostFilter
 from .forms import PostForm
 from django.core.paginator import Paginator
 from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 class PostList(ListView):
@@ -47,7 +48,7 @@ class AddPost(CreateView):
         return super().form_valid(form)
 
 
-class PostUpdate(UpdateView):
+class PostUpdate(LoginRequiredMixin, UpdateView):
     template_name = 'news/post_create.html'
     form_class = PostForm
 

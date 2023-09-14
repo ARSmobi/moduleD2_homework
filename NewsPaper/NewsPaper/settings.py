@@ -140,11 +140,12 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_URL = '/accounts/login/'
-LOGIN_REDIRECT = '/news/search/'
+LOGIN_REDIRECT_URL = '/news/search/'
+LOGOUT_REDIRECT_URL = '/news/search/'
 
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
-    'allauth.account,auth_backends.AuthenticationBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
 ACCOUNT_EMAIL_REQUIRED = True
@@ -153,7 +154,7 @@ ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 
-# ACCOUNT_FORMS = {'signup': 'news.forms.BasicSignupForm'}
-#
-# if DEBUG:
-#     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+ACCOUNT_FORMS = {'signup': 'news.forms.BasicSignupForm'}
+
+if DEBUG:
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

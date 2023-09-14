@@ -1,4 +1,12 @@
 <header class="p-3 text-bg-dark">
+  <div style="display: flex; flex-direction: column; align-items: end;">
+    {% if author %}
+      <p style="margin-bottom: 0;">{{ author }}</p>
+      {% if not is_not_author %}
+        <p style="color: yellow; margin-bottom: 0;">Автор</p>
+      {% endif %}
+    {% endif %}
+  </div>
  <div class="container">
    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
      <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
@@ -14,8 +22,18 @@
      </ul>
 
      <div class="text-end">
-       <button type="button" class="btn btn-outline-light me-2">Login</button>
-       <button type="button" class="btn btn-warning">Sign-up</button>
+       {% if author %}
+        <a href="/accounts/logout/">
+         <button type="button" class="btn btn-outline-light me-2">Выйти</button>
+        </a>
+       {% else %}
+        <a href="/accounts/login/">
+         <button type="button" class="btn btn-outline-light me-2">Войти</button>
+        </a>
+       {% endif %}
+       <a href="/accounts/signup/">
+         <button type="button" class="btn btn-warning">Регистрация</button>
+       </a>
      </div>
    </div>
  </div>

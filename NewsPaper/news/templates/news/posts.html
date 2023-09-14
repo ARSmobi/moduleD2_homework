@@ -42,8 +42,22 @@ News
     <h2>Нет новостей или статей</h2>
 {% endif %}
 
-<div style="display: flex; justify-content: end;">
-    <a href="{% url 'news:post_create' %}"><button class="btn btn-success"> + </button></a>
+<div style="display: flex; justify-content: space-between;">
+    <div>
+        {% if author %}
+            {% if is_not_author %}
+                <a href="{% url 'news:upgrade' %}">
+                    <button class="btn btn-success">Стать автором</button>
+                </a>
+            {% endif %}
+    </div>
+    <div>
+        <a href="{% url 'news:post_create' %}">
+            <button class="btn btn-success"> + </button>
+        </a>
+    </div>
+        {% endif %}
+
 </div>
 
 {% endblock content %}

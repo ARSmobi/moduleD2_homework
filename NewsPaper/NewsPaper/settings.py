@@ -156,5 +156,18 @@ ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 ACCOUNT_FORMS = {'signup': 'news.forms.BasicSignupForm'}
 
-if DEBUG:
-    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# if DEBUG:
+#     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+# EMAIL_HOST = 'smtp.yandex.ru'
+# EMAIL_HOST_USER = 'ver.kag'
+# EMAIL_HOST_PASSWORD = 'pnaauhzbruizevpf'
+
+EMAIL_HOST_PASSWORD = 'laao ynrl hpit toxe'
+EMAIL_HOST_USER = 'arsmobi.2@gmail.com'
+EMAIL_HOST = 'smtp.gmail.com'
+
+EMAIL_PORT = 465
+EMAIL_USE_SSL = True

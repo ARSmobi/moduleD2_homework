@@ -2,6 +2,7 @@ from django.forms import ModelForm
 from .models import Post
 from allauth.account.forms import SignupForm
 from django.contrib.auth.models import Group
+from django import forms
 
 
 class PostForm(ModelForm):
@@ -11,12 +12,19 @@ class PostForm(ModelForm):
         fields = ['title',
                   'text',
                   'author',
-                  'categoryType']
+                  'categoryType',
+                  'postCategory']
         labels = {
             'title': 'Название',
             'text': 'Текст',
-            'author': 'Автор',
+            'author': 'автор',
             'categoryType': 'Тип поста',
+            'postCategory': 'Категория'
+        }
+        widgets = {
+            'postCategory': forms.CheckboxSelectMultiple(attrs={
+                'value': model.author
+            })
         }
 
 

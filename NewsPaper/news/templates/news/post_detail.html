@@ -15,6 +15,7 @@ Post
         <div>
             Название: <span class="badge bg-info">{{ post.title|Censor }}</span>
             Дата: <span class="badge bg-info">{{ post.dateCreation|date:'d.m.Y H:j' }}</span>
+            Категория:<span class="badge bg-info">{{ post.postCategory.name }}</span>
         </div>
     </div>
     <div class="card-body">

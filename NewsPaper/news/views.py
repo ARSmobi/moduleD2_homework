@@ -10,6 +10,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMix
 from django.contrib.auth import logout
 from django.contrib.auth.models import Group
 from django.contrib.auth.decorators import login_required
+from django.core.mail import send_mail, EmailMultiAlternatives
+from django.template.loader import render_to_string
 
 
 class PostList(ListView):
@@ -58,6 +60,23 @@ class AddPost(PermissionRequiredMixin, CreateView):
     def form_valid(self, form):
         post = form.save(commit=False)
         post.save()
+
+        # html_content = render_to_string(
+        #     'post_created.html',
+        #     {
+        #         'post': post
+        #     }
+        # )
+        #
+        # msg = EmailMultiAlternatives(
+        #     subject=f'{post.title} | {post.dateCreation}',
+        #     body=post.text,
+        #     from_email='arsmobi.2@gmail.com',
+        #     to=['ver.kag@yandex.ru', 'arsmobi@mail.ru'],
+        # )
+        # msg.attach_alternative(html_content, "text/html")
+        # msg.send()
+
         return super().form_valid(form)
 
     def get_context_data(self, **kwargs):

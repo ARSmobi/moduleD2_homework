@@ -58,7 +58,7 @@ class Post(models.Model):
         return self.text[:123] + '...'
 
     def __str__(self):
-        return f'Post #{self.pk} - Title: {self.title}'
+        return f'Post #{self.pk} - Title: {self.title} - Categories: {self.postCategory}'
 
     def get_absolute_url(self):
         return f'/post/{self.id}'
